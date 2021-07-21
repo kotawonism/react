@@ -1,17 +1,41 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import logo from './joyman.png';
+
+
+class Toggle extends React.Component {
+  constructor(props) {
+    super(props);
+    //this.state = {isToggleOn: true};
+
+    // This binding is necessary to make `this` work in the callback
+    //this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    const element = document.getElementById("img");
+    const cloneElement = element.cloneNode(true);
+    document.getElementById("hogehoge").appendChild(cloneElement);
+  }
+
+  render() {
+    return (
+      <div>
+      <div Id="hogehoge">
+      </div>
+      <div Id="img">
+      <img src={logo} />
+      </div>
+      <button onClick={this.handleClick}>
+        複製
+      </button>
+      </div>
+    );
+  }
+}
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Toggle />,
   document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
