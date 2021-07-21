@@ -28,7 +28,7 @@ class Toggle extends React.Component {
       <img src={logo} />
       </div>
       <button onClick={this.handleClick}>
-        複製
+        影分身
       </button>
       </div>
     );
